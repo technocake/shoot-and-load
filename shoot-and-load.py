@@ -2,6 +2,7 @@
 #coding: utf-8
 import pyperclip
 import os, time
+import urllib
 
 
 WEBSITE_ROOT_URL = "http://technocake.net/screenshots/" #keep trailing slash
@@ -10,7 +11,7 @@ REMOTE_FOLDER = "/var/www/www.technocake.net/screenshots"
 SERVER = "pompel.komsys.org"
 
 def genUrl(picture):
-	return WEBSITE_ROOT_URL + picture
+	return WEBSITE_ROOT_URL + urllib.quote(picture) #urlencoding the file part
 
 def putOnServer(picture):
 	os.system("scp \"%s\" %s:%s" % (picture, SERVER, REMOTE_FOLDER))
@@ -20,7 +21,7 @@ def deletePicture(picture):
 
 def lookForPicture(folder=LOCALE_FOLDER):
 	for file in os.listdir(folder):
-	    if file.split('.')[-1] == 'png':
+	    if file.split('.')[-1] in [ 'png', 'jpg'] :
 	    	absfile = LOCALE_FOLDER + file
 	    	print "Found file %s, sending it online!!" % (file,)
 	    	putOnServer(absfile)
