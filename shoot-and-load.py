@@ -4,25 +4,28 @@ import pyperclip
 import os, time
 
 
-WEBSITE_ROOT_URL = "http://technocake.net/screenshots/"
-
+WEBSITE_ROOT_URL = "http://technocake.net/screenshots/" #keep trailing slash
+LOCALE_FOLDER = "/Users/technocake/Desktop/" # keep the trailing slash
+REMOTE_FOLDER = "/var/www/www.technocake.net/screenshots"
+SERVER = "pompel.komsys.org"
 
 def genUrl(picture):
 	return WEBSITE_ROOT_URL + picture
 
 def putOnServer(picture):
-	os.system("scp \"%s\" pompel.komsys.org:/var/www/www.technocake.net/screenshots" % picture)
+	os.system("scp \"%s\" %s:%s" % (picture, SERVER, REMOTE_FOLDER))
 
 def deletePicture(picture):
 	os.remove(picture)
 
-def lookForPicture(folder='~/Desktop'):
-	for file in os.listdir('/Users/technocake/Desktop'):
+def lookForPicture(folder=LOCALE_FOLDER):
+	for file in os.listdir(folder):
 	    if file.split('.')[-1] == 'png':
+	    	absfile = LOCALE_FOLDER + file
 	    	print "Found file %s, sending it online!!" % (file,)
-	    	putOnServer(file)
+	    	putOnServer(absfile)
 	    	copyToClipBoard(genUrl(file))
-	    	deletePicture(file)
+	    	deletePicture(absfile)
 
 def copyToClipBoard(what):
 	pyperclip.setcb(what)
