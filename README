@@ -4,3 +4,13 @@ Shoot and load
 	Python script that runs in the background, whatching a folder. When a picture pops in, it will be sent to a server using scp, and the url will be copied to your clipboard.
 
 	Dependencies: python, running on a system with a native scp from cli. You probably should authenticate with a ssh-key.
+
+
+Innstalation:
+	
+	cd ~
+	git clone git@github.com:technocake/shoot-and-load.git
+	
+- To make a handy alias, edit your appropriate aliasfile, f.eks:
+	
+	echo "alias shotnload='. ~/shoot-and-load/shoot-and-load.py'" >> ~/.bash_aliases
