@@ -6,7 +6,7 @@ import urllib
 
 
 WEBSITE_ROOT_URL = "http://marte.fjeldsboe.com/screenshots/" #keep trailing slash
-LOCALE_FOLDER = "/Users/martebergefjeldsboe/Desktop/screenshots" # keep the trailing slash
+LOCALE_FOLDER = "/Users/martebergefjeldsboe/Desktop/screenshots/" # keep the trailing slash
 REMOTE_FOLDER = "~/www/screenshots"
 SERVER = "marte@marte.komsys.org"
 
