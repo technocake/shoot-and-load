@@ -5,10 +5,10 @@ import os, time
 import urllib
 
 
-WEBSITE_ROOT_URL = "http://technocake.net/screenshots/" #keep trailing slash
-LOCALE_FOLDER = "/Users/technocake/Desktop/" # keep the trailing slash
-REMOTE_FOLDER = "/var/www/www.technocake.net/screenshots"
-SERVER = "pompel.komsys.org"
+WEBSITE_ROOT_URL = "http://marte.fjeldsboe.com/screenshots/" #keep trailing slash
+LOCALE_FOLDER = "/Users/martebergefjeldsboe/Desktop/screenshots" # keep the trailing slash
+REMOTE_FOLDER = "~/www/screenshots"
+SERVER = "marte@marte.komsys.org"
 
 def genUrl(picture):
 	return WEBSITE_ROOT_URL + urllib.quote(picture) #urlencoding the file part
