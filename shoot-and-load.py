@@ -24,8 +24,8 @@ def lookForPicture(folder=LOCALE_FOLDER):
 	    if file.split('.')[-1] in [ 'png', 'jpg'] :
 	    	absfile = LOCALE_FOLDER + file
 	    	print "Found file %s, sending it online!!" % (file,)
-	    	putOnServer(absfile)
 	    	copyToClipBoard(genUrl(file))
+	    	putOnServer(absfile)
 	    	deletePicture(absfile)
 
 def copyToClipBoard(what):
